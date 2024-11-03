@@ -74,4 +74,10 @@ app.get('/api/domains/search', async (req: Request, res: Response) => {
 //   }
 // });
 
-export default app;
+if (require.main === module) {
+  app.listen(process.env.PORT || 3001, () => {
+    console.log(`Server running on port ${process.env.PORT || 3001}`);
+  });
+}
+
+module.exports = app;
