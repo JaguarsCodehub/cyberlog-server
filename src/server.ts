@@ -7,15 +7,13 @@ import dotenv from 'dotenv';
 dotenv.config();
 const prisma = new PrismaClient();
 const app = express();
+const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 
-app.get('/api/health', (req, res) => {
-  res.json({ status: 'ok' });
-});
 app.get('/', (req, res) => {
-  res.json({ status: 'Works' });
+  res.json({ status: 'ok' });
 });
 
 interface DomainParams {
@@ -48,6 +46,7 @@ app.get('/api/domains/search', async (req: Request, res: Response) => {
   }
 });
 
+
 // app.get('/api/domains/:id', async (req: Request<DomainParams>, res: Response) => {
 //   try {
 //     const id = parseInt(req.params.id, 10);
@@ -71,4 +70,7 @@ app.get('/api/domains/search', async (req: Request, res: Response) => {
 //   }
 // });
 
-export default app;
+
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});
