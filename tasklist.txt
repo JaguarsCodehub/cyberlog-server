@@ -1,0 +1,7 @@
+## TODOS:
+- Create a build of the whole Cyberlog project
+- Differentiate between the client and server and delete the client Done✅
+- Create a repository for the Frontend of Cyberlog
+- Deploy both the client and server to their respective places (Vercel)
+- Make changes in the Google Cloud Console after new domains
+- Make sure both the databases and different
