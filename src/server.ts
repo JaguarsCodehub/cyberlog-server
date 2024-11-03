@@ -7,12 +7,16 @@ import dotenv from 'dotenv';
 dotenv.config();
 const prisma = new PrismaClient();
 const app = express();
-const port = process.env.PORT || 3001;
 
 app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
+  res.json({ status: 'ok' });
+});
+
+// Add a health check endpoint
+app.get('/api/health', (req, res) => {
   res.json({ status: 'ok' });
 });
 
@@ -70,7 +74,4 @@ app.get('/api/domains/search', async (req: Request, res: Response) => {
 //   }
 // });
 
-
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
-});
+export default app;
